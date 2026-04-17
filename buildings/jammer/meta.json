@@ -1,0 +1,16 @@
+{
+  "id": "jammer",
+  "name": "Jammer",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "jammer_s1_100.glb",
+    "s2_100": "jammer_s2_100.glb",
+    "s2_50": "jammer_s2_50.glb",
+    "s2_ruin": "jammer_s2_ruin.glb",
+    "s3_100": "jammer_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#3a3b3d", "#5a5e62", "#18181b", "#7c2ddb", "#dc2626", "#f59e0b"],
+  "maxPolygons": 5000,
+  "footprintHexes": 1
+}

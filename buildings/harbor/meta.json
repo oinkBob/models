@@ -1,0 +1,31 @@
+{
+  "id": "harbor",
+  "name": "Harbor",
+  "tier": 3,
+  "radius": 3,
+  "variants": {
+    "s1_100": "harbor_s1_100.glb",
+    "s2_100": "harbor_s2_100.glb",
+    "s2_50": "harbor_s2_50.glb",
+    "s2_ruin": "harbor_s2_ruin.glb",
+    "s3_100": "harbor_s3_100.glb"
+  },
+  "palette": [
+    "#808286",
+    "#5a5c5e",
+    "#3a3b3d",
+    "#5a5e62",
+    "#8B6914",
+    "#5c4710",
+    "#f59e0b",
+    "#dc2626",
+    "#38bdf8",
+    "#4ade80",
+    "#4a8a28",
+    "#2b6a8a",
+    "#4a8fad",
+    "#F5CD6B"
+  ],
+  "maxPolygons": 50000,
+  "footprintHexes": 19
+}

@@ -1,0 +1,25 @@
+{
+  "id": "guild_beam",
+  "name": "GildBeam",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "guild_beam_s1_100.glb",
+    "s2_100": "guild_beam_s2_100.glb",
+    "s2_50": "guild_beam_s2_50.glb",
+    "s2_ruin": "guild_beam_s2_ruin.glb",
+    "s3_100": "guild_beam_s3_100.glb"
+  },
+  "palette": [
+    "#808286",
+    "#5a5c5e",
+    "#3a3b3d",
+    "#5a5e62",
+    "#4ade80",
+    "#38bdf8",
+    "#F5CD6B",
+    "#5c4710"
+  ],
+  "maxPolygons": 10000,
+  "footprintHexes": 1
+}
