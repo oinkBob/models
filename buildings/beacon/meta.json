@@ -1,0 +1,26 @@
+{
+  "id": "beacon",
+  "name": "Beacon",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "beacon_s1_100.glb",
+    "s2_100": "beacon_s2_100.glb",
+    "s2_50": "beacon_s2_50.glb",
+    "s2_ruin": "beacon_s2_ruin.glb",
+    "s3_100": "beacon_s3_100.glb"
+  },
+  "palette": [
+    "#808286",
+    "#5a5c5e",
+    "#3a3b3d",
+    "#5a5e62",
+    "#8B6914",
+    "#5c4710",
+    "#4ade80",
+    "#b86a1c",
+    "#F5CD6B"
+  ],
+  "maxPolygons": 10000,
+  "footprintHexes": 1
+}

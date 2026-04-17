@@ -1,0 +1,16 @@
+{
+  "id": "bastion",
+  "name": "Bastion",
+  "tier": 3,
+  "radius": 3,
+  "variants": {
+    "s1_100": "bastion_s1_100.glb",
+    "s2_100": "bastion_s2_100.glb",
+    "s2_50": "bastion_s2_50.glb",
+    "s2_ruin": "bastion_s2_ruin.glb",
+    "s3_100": "bastion_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#3a3b3d", "#5a5e62", "#9b2323", "#f59e0b", "#f97316", "#F5CD6B", "#e63946"],
+  "maxPolygons": 30000,
+  "footprintHexes": 19
+}

@@ -1,0 +1,26 @@
+{
+  "id": "black_market",
+  "name": "Black Market",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "black_market_s1_100.glb",
+    "s2_100": "black_market_s2_100.glb",
+    "s2_50": "black_market_s2_50.glb",
+    "s2_ruin": "black_market_s2_ruin.glb",
+    "s3_100": "black_market_s3_100.glb"
+  },
+  "palette": [
+    "#6B5012",
+    "#3d2f0a",
+    "#8b4513",
+    "#5a5e62",
+    "#3a3b3d",
+    "#6a6a5a",
+    "#5a6a4a",
+    "#7a2a2a",
+    "#5a5c5e"
+  ],
+  "maxPolygons": 10000,
+  "footprintHexes": 1
+}
