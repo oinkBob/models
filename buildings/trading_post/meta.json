@@ -1,0 +1,26 @@
+{
+  "id": "trading_post",
+  "name": "Trading Post",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "trading_post_s1_100.glb",
+    "s2_100": "trading_post_s2_100.glb",
+    "s2_50": "trading_post_s2_50.glb",
+    "s2_ruin": "trading_post_s2_ruin.glb",
+    "s3_100": "trading_post_s3_100.glb"
+  },
+  "palette": [
+    "#5a5c5e",
+    "#808286",
+    "#8B6914",
+    "#5c4710",
+    "#4a8a28",
+    "#d4bc7a",
+    "#f59e0b",
+    "#4ade80",
+    "#b86a1c"
+  ],
+  "maxPolygons": 10000,
+  "footprintHexes": 1
+}

@@ -1,0 +1,25 @@
+{
+  "id": "storage",
+  "name": "Storage",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "storage_s1_100.glb",
+    "s2_100": "storage_s2_100.glb",
+    "s2_50": "storage_s2_50.glb",
+    "s2_ruin": "storage_s2_ruin.glb",
+    "s3_100": "storage_s3_100.glb"
+  },
+  "palette": [
+    "#5a5c5e",
+    "#808286",
+    "#3a3b3d",
+    "#8B6914",
+    "#5c4710",
+    "#f59e0b",
+    "#4a8a28",
+    "#f97316"
+  ],
+  "maxPolygons": 10000,
+  "footprintHexes": 1
+}

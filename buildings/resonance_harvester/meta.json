@@ -1,0 +1,16 @@
+{
+  "id": "resonance_harvester",
+  "name": "Resonance Harvester",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "resonance_harvester_s1_100.glb",
+    "s2_100": "resonance_harvester_s2_100.glb",
+    "s2_50": "resonance_harvester_s2_50.glb",
+    "s2_ruin": "resonance_harvester_s2_ruin.glb",
+    "s3_100": "resonance_harvester_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#3a3b3d", "#5a5e62", "#6e3a2a", "#5c4710", "#8B6914", "#18181b", "#dc2626", "#7c2ddb", "#f59e0b"],
+  "maxPolygons": 15000,
+  "footprintHexes": 7
+}

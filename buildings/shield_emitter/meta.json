@@ -1,0 +1,16 @@
+{
+  "id": "shield_emitter",
+  "name": "Shield Emitter",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "shield_emitter_s1_100.glb",
+    "s2_100": "shield_emitter_s2_100.glb",
+    "s2_50": "shield_emitter_s2_50.glb",
+    "s2_ruin": "shield_emitter_s2_ruin.glb",
+    "s3_100": "shield_emitter_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#d4d4d0", "#3a3b3d", "#5a5e62", "#38bdf8", "#6ec9ff"],
+  "maxPolygons": 15000,
+  "footprintHexes": 7
+}

@@ -1,0 +1,16 @@
+{
+  "id": "watch_tower",
+  "name": "Watch Tower",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "watch_tower_s1_100.glb",
+    "s2_100": "watch_tower_s2_100.glb",
+    "s2_50": "watch_tower_s2_50.glb",
+    "s2_ruin": "watch_tower_s2_ruin.glb",
+    "s3_100": "watch_tower_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#3a3b3d", "#5a5e62", "#8B6914", "#5c4710", "#dc2626", "#F5CD6B", "#f59e0b"],
+  "maxPolygons": 5000,
+  "footprintHexes": 1
+}

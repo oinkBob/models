@@ -1,0 +1,16 @@
+{
+  "id": "resonance_trap",
+  "name": "Resonance Trap",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "resonance_trap_s1_100.glb",
+    "s2_100": "resonance_trap_s2_100.glb",
+    "s2_50": "resonance_trap_s2_50.glb",
+    "s2_ruin": "resonance_trap_s2_ruin.glb",
+    "s3_100": "resonance_trap_s3_100.glb"
+  },
+  "palette": ["#3a3b3d", "#5a5e62", "#504030", "#2a1a1a", "#dc2626"],
+  "maxPolygons": 3000,
+  "footprintHexes": 1
+}
