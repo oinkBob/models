@@ -1,0 +1,21 @@
+{
+  "id": "distributor",
+  "name": "Distributor",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "distributor_s1_100.glb",
+    "s2_100": "distributor_s2_100.glb",
+    "s2_50": "distributor_s2_50.glb",
+    "s2_ruin": "distributor_s2_ruin.glb",
+    "s3_100": "distributor_s3_100.glb"
+  },
+  "palette": [
+    "#808286",
+    "#5a5c5e",
+    "#4ade80",
+    "#78716c"
+  ],
+  "maxPolygons": 4000,
+  "footprintHexes": 7
+}

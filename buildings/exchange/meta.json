@@ -1,0 +1,28 @@
+{
+  "id": "exchange",
+  "name": "Exchange",
+  "tier": 3,
+  "radius": 3,
+  "variants": {
+    "s1_100": "exchange_s1_100.glb",
+    "s2_100": "exchange_s2_100.glb",
+    "s2_50": "exchange_s2_50.glb",
+    "s2_ruin": "exchange_s2_ruin.glb",
+    "s3_100": "exchange_s3_100.glb"
+  },
+  "palette": [
+    "#B8BAC0",
+    "#5a5c5e",
+    "#3a3b3d",
+    "#5a5e62",
+    "#f59e0b",
+    "#b06a00",
+    "#4ade80",
+    "#f97316",
+    "#38bdf8",
+    "#fde68a",
+    "#f5f5f0"
+  ],
+  "maxPolygons": 50000,
+  "footprintHexes": 19
+}

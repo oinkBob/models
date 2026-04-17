@@ -1,0 +1,16 @@
+{
+  "id": "energy_node",
+  "name": "Energy Node",
+  "tier": 1,
+  "radius": 1,
+  "variants": {
+    "s1_100": "energy_node_s1_100.glb",
+    "s2_100": "energy_node_s2_100.glb",
+    "s2_50": "energy_node_s2_50.glb",
+    "s2_ruin": "energy_node_s2_ruin.glb",
+    "s3_100": "energy_node_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#3a3b3d", "#5a5e62", "#dc2626", "#7c2ddb", "#f59e0b"],
+  "maxPolygons": 5000,
+  "footprintHexes": 1
+}

@@ -1,0 +1,25 @@
+{
+  "id": "cleaner",
+  "name": "Cleaner",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "cleaner_s1_100.glb",
+    "s2_100": "cleaner_s2_100.glb",
+    "s2_50": "cleaner_s2_50.glb",
+    "s2_ruin": "cleaner_s2_ruin.glb",
+    "s3_100": "cleaner_s3_100.glb"
+  },
+  "palette": [
+    "#5a5c5e",
+    "#808286",
+    "#3a3b3d",
+    "#5a5e62",
+    "#e8ecf0",
+    "#38bdf8",
+    "#4ade80",
+    "#f87171"
+  ],
+  "maxPolygons": 25000,
+  "footprintHexes": 7
+}
