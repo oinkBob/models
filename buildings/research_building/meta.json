@@ -1,0 +1,28 @@
+{
+  "id": "research_building",
+  "name": "Research Building",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "research_building_s1_100.glb",
+    "s2_100": "research_building_s2_100.glb",
+    "s2_50": "research_building_s2_50.glb",
+    "s2_ruin": "research_building_s2_ruin.glb",
+    "s3_100": "research_building_s3_100.glb"
+  },
+  "palette": [
+    "#5a5c5e",
+    "#808286",
+    "#3a3b3d",
+    "#5a5e62",
+    "#5c4710",
+    "#8B6914",
+    "#b86a1c",
+    "#38bdf8",
+    "#f97316",
+    "#4ade80",
+    "#dc2626"
+  ],
+  "maxPolygons": 25000,
+  "footprintHexes": 7
+}

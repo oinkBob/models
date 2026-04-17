@@ -1,0 +1,26 @@
+{
+  "id": "maintenance_building",
+  "name": "Maintenance Building",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "maintenance_building_s1_100.glb",
+    "s2_100": "maintenance_building_s2_100.glb",
+    "s2_50": "maintenance_building_s2_50.glb",
+    "s2_ruin": "maintenance_building_s2_ruin.glb",
+    "s3_100": "maintenance_building_s3_100.glb"
+  },
+  "palette": [
+    "#5a5c5e",
+    "#808286",
+    "#3a3b3d",
+    "#5a5e62",
+    "#5c4710",
+    "#8B6914",
+    "#f59e0b",
+    "#f97316",
+    "#4ade80"
+  ],
+  "maxPolygons": 25000,
+  "footprintHexes": 7
+}

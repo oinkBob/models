@@ -1,0 +1,16 @@
+{
+  "id": "main_building",
+  "name": "Main Building",
+  "tier": 2,
+  "radius": 2,
+  "variants": {
+    "s1_100": "main_building_s1_100.glb",
+    "s2_100": "main_building_s2_100.glb",
+    "s2_50": "main_building_s2_50.glb",
+    "s2_ruin": "main_building_s2_ruin.glb",
+    "s3_100": "main_building_s3_100.glb"
+  },
+  "palette": ["#5a5c5e", "#808286", "#3a3b3d", "#5a5e62", "#8B6914", "#5c4710", "#4a8a28", "#38bdf8", "#4ade80", "#F5CD6B", "#475878", "#e63946"],
+  "maxPolygons": 15000,
+  "footprintHexes": 7
+}
