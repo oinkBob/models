@@ -20,3 +20,6 @@ desktop.ini
 # Temp
 _preview_*.png
 _tmp_*
+_harvester_temp.blend
+# Temporary blend exports during build
+_*.blend
