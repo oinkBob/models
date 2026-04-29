@@ -1,0 +1,102 @@
+{
+  "name": "base_plate",
+  "type": "foundation",
+  "description": "Universelle Bau-Basisplatte für Gebäude (Hex-Footprint, HEX_R=1, 6 Pipe-Anschlüsse). Drei separate glTF-Modelle: die Foundation (immer sichtbar) plus zwei Deko-Modelle (Bretter und Baustellen-Lampe), die optional auf die leere Platte gestellt werden können. Wird ein Gebäude errichtet, entfernt der Client die Deko und setzt das Gebäude an dieselbe Position.",
+  "structure": {
+    "plate/": {
+      "base_plate.glb":    "364 KB · 1084 Tris · 15 Meshes · Foundation: Stein-Mauerwerk (PolyHaven castle_wall_slates 512px), Holz-Trim (dark_planks 512px), Flansche mit Rost-Patina (rust_coarse_01 512px) in Boolean-Vertiefungen an allen 6 Hex-Kanten",
+      "base_plate.blend":  "Blender-Quelle der Foundation",
+      "base_plate_preview.png": "Beauty-Render der Foundation alleine"
+    },
+    "deko/": {
+      "planks.glb":   "64 KB · 136 Tris · 2 verschmutzte Holzbretter (PolyHaven wood_planks_dirt 512px Diffuse, JPEG Q80) gekreuzt auf dem Deck, mit Nagelköpfen. AO ins Vertex-Color gebacken.",
+      "lamp.glb":     "322 KB · 8321 Tris · Holzlaterne (PolyHaven wooden_lantern_01, PBR-Maps gestrippt → nur Diffuse + Glas-Diffuse, 512px JPEG Q80). Skaliert 0.85, Position (0.40, -0.30, 0.733). Empty `emitter_lamp`.",
+      "deko.blend":   "Blender-Quelle für beide Deko-Modelle (enthält auch Foundation-Geometrie für Inkontext-Editieren)",
+      "planks_preview.png": "Close-up der Bretter",
+      "lamp_preview.png": "Close-up der Laterne"
+    },
+    "base_plate_with_deko_preview.png": "Kombi-Render: Foundation + Bretter + Lampe zusammen — der leere Bauzustand"
+  },
+  "swap_mechanic": {
+    "empty_state": "client lädt: base_plate.glb + planks.glb + lamp.glb (alle an derselben Hex-Position, geshart Origin (0,0,0))",
+    "occupied_state": "client lädt: base_plate.glb + <building>.glb (Deko entfernt; Gebäude an gleiche Position)",
+    "implementation_hint": "In Three.js: ein Object3D-Container pro Hex. Beim Bauen einfach planks und lamp aus dem Container entfernen oder visible=false setzen, dann das Gebäude-Modell adden. Bei Demolish: zurück zu empty_state."
+  },
+  "geometry": {
+    "hex_radius": 1.0,
+    "apothem": 0.866,
+    "footprint_hex": 1,
+    "foundation_height": 0.72,
+    "anchor_z": 0.30,
+    "deco_z_origin": 0.72,
+    "comment": "Alle drei GLBs teilen Welt-Origin (0,0,0). Deko-Geometrie liegt natürlich auf dem Deck-Top (z=0.72)."
+  },
+  "anchors": {
+    "anchor_0": { "edge": "E",  "angle_deg": 0,   "pos": [0.866, 0.0, 0.30] },
+    "anchor_1": { "edge": "NE", "angle_deg": 60,  "pos": [0.433, 0.75, 0.30] },
+    "anchor_2": { "edge": "NW", "angle_deg": 120, "pos": [-0.433, 0.75, 0.30] },
+    "anchor_3": { "edge": "W",  "angle_deg": 180, "pos": [-0.866, 0.0, 0.30] },
+    "anchor_4": { "edge": "SW", "angle_deg": 240, "pos": [-0.433, -0.75, 0.30] },
+    "anchor_5": { "edge": "SE", "angle_deg": 300, "pos": [0.433, -0.75, 0.30] }
+  },
+  "pipe_socket_design": {
+    "recess_depth": 0.10,
+    "recess_height_z": [0.14, 0.46],
+    "flange_disc_position": "apothem - 0.04 (sits inside the recess)",
+    "pipe_stub_extends_to": "apothem (0.866) — pipe physically reaches the hex edge",
+    "bolt_protrusion": "Bolts protrude slightly past the apothem so they sit inside the gap when an adjacent hex's flange docks. Both flanges' bolts overlap inside the connection space and become invisible from outside.",
+    "bolts_per_flange": 8
+  },
+  "deko": {
+    "planks": {
+      "count": 2,
+      "size_first":  [1.05, 0.18, 0.03],
+      "size_second": [0.78, 0.16, 0.03],
+      "rotation_first_deg": 8,
+      "rotation_second_deg": -22,
+      "z_top_deck": 0.72,
+      "texture": "PolyHaven wood_planks_dirt (1k diffuse). Cube-projected with cube_size=0.40 — shows dirt and visible wood grain. AO baked into vertex color Col."
+    },
+    "lamp": {
+      "source": "PolyHaven model `wooden_lantern_01` (1k textures, glTF import) — wooden frame, glass panels, iron handle, hinged door with latch. PBR materials retained from PolyHaven export.",
+      "position_xy": [0.40, -0.30],
+      "z_base": 0.733,
+      "scale": 0.85,
+      "total_height": "≈ 0.33 (after scale)",
+      "structure": [
+        "DK_Lantern (body, 5619 polys) — wooden frame + glass",
+        "DK_Lantern_door (2054 polys, child of body)",
+        "DK_Lantern_handle (648 polys, child of body) — iron carrying handle"
+      ],
+      "emitter": "emitter_lamp (PLAIN_AXES empty) at flame height z≈0.90 (world) — Three.js attaches a PointLight here and pulses/blinks while the plate is empty",
+      "note": "No vertex-color AO bake on the lantern — its PolyHaven materials carry their own normal/rough/AO maps. Other deko/foundation parts use the Texture × VColor(Col) pipeline."
+    }
+  },
+  "render_pipeline": "Flat-shading + Cycles AO bake (32 samples) → vertex color attribute Col → per-material Texture × Col MULTIPLY into Principled BSDF Base Color. Three.js side: MeshBasicMaterial-compatible (vertex colors enabled, light is baked).",
+  "size_optimization": {
+    "total_size_kb": 750.5,
+    "total_size_mb": 0.73,
+    "vs_unoptimized_mb": 7.4,
+    "reduction_pct": 90,
+    "techniques_applied": [
+      "Stripped unused PBR maps (normal/rough/metal/displacement/AO) from polyhaven imports — only diffuse retained (we render flat-shaded, all light baked into vertex colors)",
+      "Downscaled all textures from 1024×1024 to 512×512 (4× fewer pixels, virtually invisible difference at hex-tile zoom)",
+      "Re-encoded as JPEG quality 80 on glTF export (export_image_format='JPEG', export_jpeg_quality=80)",
+      "Joined 48 individual bolt meshes into 6 per-flange meshes; merged 6 bores into 1, 6 flange-discs into 1, 6 recess-backs into 1, 6 pipe-stubs into 1 → reduced foundation mesh count from 77 to 15 (fewer draw calls in Three.js)"
+    ],
+    "future_optimizations": [
+      "Draco mesh compression (further ~5-10× geometry reduction) — requires libextern_draco.so which is missing; Three.js GLTFLoader supports it via DRACOLoader",
+      "WebP texture format (smaller than JPEG, supported by all modern browsers; export_image_format='WEBP')",
+      "Texture atlasing across multiple GLBs (one shared atlas for all building stone, etc.)"
+    ]
+  },
+  "polyhaven_textures_used": [
+    "castle_wall_slates (1k diffuse) — foundation stone walls and deck",
+    "dark_planks (1k diffuse) — wood trim band on foundation",
+    "rust_coarse_01 (1k diffuse) — flange discs, recess back plates, pipe stubs",
+    "wood_planks_dirt (1k diffuse) — deko planks, dirty weathered wood"
+  ],
+  "polyhaven_models_used": [
+    "wooden_lantern_01 (1k) — used directly as deko lamp, scaled 0.85, PBR materials retained"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "name": "pipes",
+  "type": "pipe_segments",
+  "purpose": "Rohr-Segmente die auf der pipe_plate liegen. Drei Varianten je nach welche Hex-Kanten verbunden werden. Jedes Rohr hat fünf einfache Käfig-Lampen oben drauf (selbst-modelliert, low-poly) für visuelle Flow-Anzeige zur Laufzeit.",
+  "variants": {
+    "pipe_straight": {
+      "status": "✓ done",
+      "file": "pipe_straight.glb",
+      "size_kb": 162,
+      "polys": 1750,
+      "meshes": 13,
+      "connects": "180° opposite edges (E↔W, NE↔SW, NW↔SE)",
+      "rotation_deg": "Three.js rotates by 0/60/120 around Y to fit the desired edge pair"
+    },
+    "pipe_curve_gentle": {
+      "status": "todo",
+      "connects": "120° apart (one edge skipped)"
+    },
+    "pipe_curve_sharp": {
+      "status": "todo",
+      "connects": "60° apart (adjacent edges)"
+    }
+  },
+  "common_specs": {
+    "hex_radius": 1.0,
+    "apothem": 0.866,
+    "pipe_centerline_z": 0.30,
+    "pipe_outer_radius": 0.11,
+    "pipe_top_z": 0.41,
+    "pipe_bottom_z": 0.19,
+    "pipe_plate_top_z": 0.19
+  },
+  "pipe_straight_structure": {
+    "pipe_tube": {
+      "shape": "Subdivided cylinder along +X, length 1.732, radius 0.11",
+      "material": "mx_metal_tex (rusty_metal_grid 512px)"
+    },
+    "end_flanges": {
+      "shape": "Disc r=0.135 d=0.04 an beiden Enden bei (±0.866, 0, 0.30)",
+      "material": "mx_metal_fittings (rusty_metal_04 512px)",
+      "polys": 22
+    },
+    "bolts": {
+      "count": 16,
+      "dimensions": "r=0.020 d=0.040 (gleiche Maße wie base_plate-Flansch-Bolts)",
+      "orbit_radius": 0.10,
+      "material": "mx_metal_lt — KONSISTENT mit base_plate (Building) Bolts",
+      "joined_into": "PS_Bolts mesh"
+    },
+    "bands": {
+      "count": 4,
+      "shape": "Verstärkungs-Ringe r=0.122 d=0.04 bei x = -0.55, -0.20, +0.20, +0.55",
+      "material": "mx_metal_fittings (rusty_metal_04)",
+      "joined_into": "PS_Bands mesh"
+    },
+    "lamps": {
+      "count": 5,
+      "design": "Selbst-modelliert (low-poly). Pro Lampe: Mount-Disc + 4 Cage-Rods + Top-Ring + Bulb (UV-Sphere) + Top-Cap. ~150 polys/lamp.",
+      "scale": "1.0 (gebaut auf Endgröße — keine Skalierung)",
+      "positions_x": [-0.708, -0.375, 0.0, 0.375, 0.708],
+      "z": 0.41,
+      "frame_material": "mx_metal_dk (palette dark grey, mit AO via VColor)",
+      "bulb_material": "mx_lamp_bulb (warm yellow base #fde68a + amber emission #fbbf24, strength 1.5)",
+      "frame_joined_into": "PS_Lamps_Frame (alle 5 Lampen-Frames zusammen)",
+      "bulbs_separate": "PS_Lamp0_bulb..PS_Lamp4_bulb (separate meshes für individuelles Three.js-Adressieren)"
+    },
+    "mounting_brackets": {
+      "count": 4,
+      "design": "Inverted-U aus HOLZ: Foot plate auf Deck + 2 vertikale Posts links/rechts der Pipe + Top-Crossbar darüber. Alle Teile berühren sich — KEINE Lücken.",
+      "positions_x": [-0.55, -0.20, 0.20, 0.55],
+      "dimensions": {
+        "foot_plate": "0.06×0.34×0.014 (X×Y×Z) auf Deck",
+        "posts": "0.06×0.025×0.232 each, an y=±0.135",
+        "crossbar": "0.06×0.295×0.024 oben, geht über die Pipe drüber"
+      },
+      "material": "mx_wood_brackets (wood_planks_dirt × tint 0.85,0.78,0.65)",
+      "bolts": "8 total (2 pro Bracket, oben auf den Posts), mx_metal_bolts (rusty_metal_04 mit Bright-Tint)",
+      "joined_into": "PS_Brackets + PS_BracketBolts",
+      "rationale": "User wollte Holz-Brackets — passt zum Wood-Deck der pipe_plate, gibt einen Holz-Metall-Kontrast zur rostigen Pipe."
+    }
+  },
+  "anchors": {
+    "anchor_0": { "edge": "E", "pos": [0.866, 0.0, 0.30] },
+    "anchor_3": { "edge": "W", "pos": [-0.866, 0.0, 0.30] },
+    "lamp_anchor_0..4": "5 Empties an den 5 Lampen-Positionen für Three.js-Adressierung"
+  },
+  "polyhaven_textures_used": [
+    "rusty_metal_04 (1k → 512 diffuse) — UNIFIED metal texture für Pipe-Body, Flansche, Bänder, Lamps, Bolts (per-Material-Tint subtil unterschieden)",
+    "wood_planks_dirt (1k → 512 diffuse) — Holz-Brackets (NEU, ersetzt rusty_metal_04 für brackets)"
+  ],
+  "material_tint_family": {
+    "mx_metal_pipe":     "(0.92, 0.92, 0.94) — Pipe-Body, neutral leicht kühler",
+    "mx_metal_fittings": "(1.15, 1.05, 0.95) — Flansche + Bänder, warm full (Brackets nicht mehr — sind jetzt Holz)",
+    "mx_metal_lamps":    "(0.40, 0.42, 0.48) — Lamp-Frames, dunkler kühler grau",
+    "mx_metal_bolts":    "(1.35, 1.20, 1.00) — Bolts, warm bright (worn shiny look)",
+    "mx_wood_brackets":  "(0.85, 0.78, 0.65) auf wood_planks_dirt — Holz-Brackets, leicht abgedunkelt (alter Bauholz-Look)",
+    "rationale": "Zwei Diffuse-Texturen (rusty_metal_04 + wood_planks_dirt), 5 Material-Varianten via RGB-Tint-Multiplikator zwischen Texture und VertexColor-Stufe."
+  },
+  "connection_test": {
+    "test_files": ["connection_test.png", "connection_closeup.png"],
+    "scene": "base_plate at (0,0,0) + pipe_plate at (1.732, 0, 0) + pipe_straight on top of pipe_plate",
+    "verification": "Pipe-W-Flansch (disc center world x=0.871) trifft auf base_plate-E-Recess (disc center x=0.826). Beide Bolt-Sets mit jeweils 8 bolts treffen sich exakt am shared Apothem (x=0.866). Visuell mating ✓.",
+    "small_gap_explanation": "5mm Lücke zwischen den beiden disc-Faces (0.826↔0.871) sind die natürliche Hex-Edge-Boundary — wird in-game vom benachbarten Hex-Tile verdeckt."
+  }
+  "render_pipeline": "Flat-shading + Cycles AO bake auf Metal-Pipe-Parts (LAMPS HIDDEN während bake — sonst blockieren ihre Volumen die AO-Rays). Lamp-Frame: Col als white initialisiert (kein AO-Darkening, klare Ablesbarkeit). Modern Blender 5.1: Image × VertexColor('Col') MULTIPLY → BSDF.",
+  "size_optimization": {
+    "size_kb": 143,
+    "polys": 1750,
+    "polys_vs_polyhaven_lamps": "1750 vs 13714 — 87% Reduktion durch Eigenbau-Lampen statt PolyHaven-Sconce",
+    "techniques_applied": [
+      "PBR maps stripped (diffuse only) für beide Texturen",
+      "Texturen 1024 → 512",
+      "JPEG Q80",
+      "Bolts (16) joined zu 1 mesh, bands (4) zu 1, brackets zu 2 (parts + bolts)",
+      "Lamp-Frames (5×) joined zu 1 mesh; Bulbs separat gehalten für individuelle Steuerung",
+      "Pipe subdivided für korrekte AO-Bake-Vertex-Verteilung",
+      "Draco mesh compression Level 6"
+    ]
+  },
+  "threejs_runtime_hints": {
+    "find_pipe_root": "Object3D wo pipe_straight.glb geladen wurde",
+    "find_bulbs": "scene.getObjectByName('PS_Lamp0_bulb')..('PS_Lamp4_bulb') — 5 separate emissive bulb meshes; modify material.emissive / emissiveIntensity für Flow-Indikation",
+    "lamp_glow_anchors": "lamp_anchor_0..4 Empties (zusätzliche Referenz-Punkte falls PointLights gewünscht)",
+    "anchor_snap": "anchor_0 (E) / anchor_3 (W) zeigen wo angrenzendes Rohr/Flansch andocken muss",
+    "rotation_for_other_directions": "rotateY(60°) für NE↔SW, rotateY(120°) für NW↔SE",
+    "flow_animation_idea": "Wandernde Welle: bulbs[0..4].material.emissiveIntensity = max(0, 1 - 4*abs(((t/300 + i*0.2) % 1) - 0.5)) * 2"
+  }
+}

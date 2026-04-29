@@ -1,0 +1,22 @@
+# Blender backup files
+*.blend1
+*.blend2
+*.blend3
+*.blend@
+
+# Blender autosave
+.blend_autosave/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*~
+
+# Temp
+_preview_*.png
+_tmp_*

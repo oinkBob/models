@@ -1,0 +1,54 @@
+{
+  "name": "pipe_plate",
+  "type": "foundation",
+  "purpose": "Niedrige Basisplatte für Rohre. Wird vom Spieler errichtet, um darauf ein Rohr zu legen. Pendant zur base_plate für Gebäude — gleicher Hex-Footprint, aber deutlich flacher (0.19 vs. 0.72), damit das draufliegende Rohr (Centerline z=0.30) sauber zur Flansch-Höhe der base_plate passt.",
+  "files": {
+    "pipe_plate.glb":   "126 KB · 168 Tris · 4 Meshes · Stein-Mauerwerk-Foundation (PolyHaven castle_wall_slates 512px) mit Holz-Deck oben (PolyHaven worn_planks 512px) und 12 Metall-Nägeln. Draco mesh compression aktiv.",
+    "pipe_plate.blend": "Blender-Quelle",
+    "pipe_plate_preview.png": "Beauty-Render"
+  },
+  "geometry": {
+    "hex_radius": 1.0,
+    "apothem": 0.866,
+    "footprint_hex": 1,
+    "total_height": 0.19,
+    "anchor_z": 0.30,
+    "comment": "Pipe-Centerline ist auf z=0.30 (gleich wie base_plate Flansche). Pipe-Außenradius 0.11 → Pipe-Unterseite z=0.19 → liegt nahtlos auf Plate-Top z=0.19."
+  },
+  "anchors": {
+    "anchor_0": { "edge": "E",  "angle_deg": 0,   "pos": [0.866, 0.0, 0.30] },
+    "anchor_1": { "edge": "NE", "angle_deg": 60,  "pos": [0.433, 0.75, 0.30] },
+    "anchor_2": { "edge": "NW", "angle_deg": 120, "pos": [-0.433, 0.75, 0.30] },
+    "anchor_3": { "edge": "W",  "angle_deg": 180, "pos": [-0.866, 0.0, 0.30] },
+    "anchor_4": { "edge": "SW", "angle_deg": 240, "pos": [-0.433, -0.75, 0.30] },
+    "anchor_5": { "edge": "SE", "angle_deg": 300, "pos": [0.433, -0.75, 0.30] }
+  },
+  "layers": [
+    { "layer": "BaseRim",  "z_range": [0.00, 0.02], "material": "mx_stone_tex (castle_wall_slates)", "shape": "hex prism r=0.97" },
+    { "layer": "Body",     "z_range": [0.02, 0.13], "material": "mx_stone_tex (castle_wall_slates)", "shape": "hex prism r=0.99" },
+    { "layer": "WoodDeck", "z_range": [0.13, 0.19], "material": "mx_wood_tex (worn_planks)", "shape": "hex prism r=0.965 (slight inset so stone shows under the wood edge)" },
+    { "layer": "Nails (12)", "z_range": [0.19, 0.196], "material": "mx_metal_mid", "shape": "12 small cylinders, 2 per hex edge, on top of the WoodDeck" }
+  ],
+  "compatibility": {
+    "compat_with": "base_plate.glb (Gebäude-Plate)",
+    "shared_anchor_z": 0.30,
+    "shared_apothem": 0.866,
+    "shared_hex_radius": 1.0,
+    "rationale": "Wenn ein pipe_plate-Hex an einen base_plate-Hex angrenzt, dockt das Rohr auf der pipe_plate (Centerline z=0.30) direkt an den Flansch der base_plate (auch Centerline z=0.30) an. Beide nutzen dieselbe Hex-Edge-Konvention (anchor_0=E, 1=NE, 2=NW, 3=W, 4=SW, 5=SE)."
+  },
+  "render_pipeline": "Flat-shading + Cycles AO bake (32 samples) ins Vertex-Color Col → modern Blender 5.1 Material-Setup: Image Texture × VertexColor('Col') MULTIPLY → Principled BSDF Base Color. Three.js: MeshBasicMaterial-tauglich.",
+  "polyhaven_textures_used": [
+    "castle_wall_slates (1k → 512 diffuse) — Stein-Foundation",
+    "worn_planks (1k → 512 diffuse) — Holz-Deck oben"
+  ],
+  "size_optimization": {
+    "size_kb": 126,
+    "techniques_applied": [
+      "Nur Diffuse-Maps gehalten (Normal/Rough/Metal gestrippt)",
+      "1024 → 512 Auflösung",
+      "JPEG Q80",
+      "12 Nägel zu einem PP_Nails-Mesh gejoint",
+      "Draco mesh compression Level 6 (Blender 5.1.1 unterstützt jetzt nativ)"
+    ]
+  }
+}
