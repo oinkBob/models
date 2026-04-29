@@ -1,6 +1,6 @@
-# Molanex v2 — Models
+# Models
 
-3D-Asset-Bibliothek für ein Hex-Grid-Strategiespiel im Browser. Stylized Low-Poly+, alle Modelle für Three.js optimiert (jedes GLB unter 500 KB, AO ins Vertex-Color gebacken, Draco-komprimiert).
+Modelle, erstellt mit Claude — für ein Hex-Grid-Strategiespiel im Browser. Stylized Low-Poly+, alle Modelle für Three.js optimiert (jedes GLB unter 500 KB, AO ins Vertex-Color gebacken, Draco-komprimiert).
 
 ![Connection Test — base_plate ↔ pipe_plate + pipe_straight](pipes/connection_test.png)
 

@@ -1,4 +1,4 @@
-# Molanex v2 — Asset-Pipeline Übergabe
+# Asset-Pipeline Übergabe
 
 > **Stand:** 2026-04-25 abends. Geschrieben damit eine neue Claude-Session ohne Kontext-Verlust weiterarbeiten kann.
 
@@ -6,9 +6,9 @@
 
 ## Was ist das Projekt?
 
-Hex-Grid-Strategiespiel "Molanex v2" — Web-Browser-Game (Three.js), das in einer früheren Iteration im Repo `/home/diwidan/Schreibtisch/molanex/` lebt. Diese neue Iteration nutzt **nur eine Hex-Größe** (HEX_R=1.0). Auf jedem Hex liegt entweder Terrain oder eine "Plate", auf die Spieler ein Gebäude oder ein Rohr-Segment setzen können.
+Modelle, erstellt mit Claude — für ein Hex-Grid-Strategiespiel im Browser (Three.js). Das Spiel nutzt **nur eine Hex-Größe** (HEX_R=1.0). Auf jedem Hex liegt entweder Terrain oder eine "Plate", auf die Spieler ein Gebäude oder ein Rohr-Segment setzen können.
 
-Die alten Assets in `molanex/assets/` dienen nur als Inspiration. Alle neuen Assets gehen nach `/home/diwidan/Schreibtisch/Assets/`. Memory-Files in `~/.claude/projects/-home-diwidan-Schreibtisch/memory/` dokumentieren Projekt-Konventionen.
+Alle Assets liegen in `/home/diwidan/Schreibtisch/Assets/`. Memory-Files in `~/.claude/projects/-home-diwidan-Schreibtisch/memory/` dokumentieren Projekt-Konventionen.
 
 ---
 
@@ -171,7 +171,7 @@ Zwei Diffuse-Texturen, 5 Material-Varianten via Tint-Multiplikator.
 - Analog werden curve-Pipes durch Rotation auf alle 6 Edge-Paare passen.
 
 ### Mounting-Architecture (clean-slate)
-- Alte molanex-Pipes hatten integrierte Foundation. **Neue Pipes haben das NICHT** — die `pipe_plate` ist die separate Foundation.
+- **Pipes haben KEINE integrierte Foundation** — die `pipe_plate` ist die separate Foundation. Workflow im Spiel: erst Plate bauen, dann Rohr drauf.
 - Spieler-Workflow im Game: erst Plate bauen, dann Rohr drauf.
 
 ---
@@ -202,7 +202,7 @@ Zwei Diffuse-Texturen, 5 Material-Varianten via Tint-Multiplikator.
 Diese Files werden automatisch in jeder neuen Claude-Session geladen:
 
 - `~/.claude/projects/-home-diwidan-Schreibtisch/memory/MEMORY.md` (Index)
-- `project_molanex_v2_redesign.md` — Kontext zum Projekt-Reboot mit HEX_R=1
+- Project-Memory — Projektkontext mit HEX_R=1, Renderpipeline, neuer Asset-Ordner
 - `feedback_workflow_quality.md` — User bevorzugt langsam+gewissenhaft, mit Rückfragen
 - `feedback_asset_optimization.md` — Standard-Optimierungs-Pipeline (PBR strippen, 512px, JPEG Q80, Draco)
 
