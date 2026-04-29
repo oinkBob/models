@@ -13,8 +13,21 @@
       "rotation_deg": "Three.js rotates by 0/60/120 around Y to fit the desired edge pair"
     },
     "pipe_curve_gentle": {
-      "status": "todo",
-      "connects": "120° apart (one edge skipped)"
+      "status": "✓ done",
+      "file": "pipe_curve_gentle.glb",
+      "size_kb": 174,
+      "polys": 1614,
+      "meshes": 13,
+      "connects": "120° apart (one edge skipped) — z.B. E↔NW, NE↔W, NW↔SW etc.",
+      "rotation_deg": "Three.js rotates by 0/60/120/180/240/300 around Y to fit any of the 6 valid edge pairs",
+      "geometry": {
+        "arc_radius": 1.5,
+        "arc_sweep_deg": 60,
+        "arc_center_xy": [0.866, 1.5],
+        "arc_path": "from anchor_0 (E, t=0) to anchor_2 (NW, t=1), going clockwise from arc-center angle 270° to 210°",
+        "rationale": "Sanfter Bogen — der Pipe-Mittelpunkt (0.116, 0.201) liegt komfortabel innerhalb des Hex"
+      },
+      "structure": "Gleiche Bauteile-Familie wie pipe_straight: subdivided tube + 2 Flansche + 4 Bänder + 4 Wood-Brackets + 5 Lampen + 16 Bolts. Brackets und Bänder sind perpendicular zur lokalen Tangente entlang der Kurve orientiert."
     },
     "pipe_curve_sharp": {
       "status": "todo",

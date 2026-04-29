@@ -38,11 +38,12 @@ Alle Assets liegen in `/home/diwidan/Schreibtisch/Assets/`. Memory-Files in `~/.
 │
 └── pipes/                                 ⚙ IN PROGRESS
     ├── pipe_straight.glb         162 KB · 1750 Tris · ✓ DONE — Holz-Brackets, 5 Lampen, Connection-getestet
-    ├── pipe_curve_gentle.glb     ⏳ TODO — 120° (eine Kante übersprungen)
-    ├── pipe_curve_sharp.glb      ⏳ TODO — 60° (benachbarte Kanten)
-    ├── connection_test.png        Composite: base_plate + pipe_plate + pipe_straight
-    ├── connection_closeup.png     Close-up am Joint
-    ├── pipe_straight.blend
+    ├── pipe_curve_gentle.glb     174 KB · 1614 Tris · ✓ DONE — 60°-Bogen Radius 1.5 (E↔NW)
+    ├── pipe_curve_sharp.glb      ⏳ TODO — 120°-Bogen (benachbarte Kanten, Radius 0.5)
+    ├── connection_test.png             Composite: base_plate + pipe_plate + pipe_straight
+    ├── connection_closeup.png          Close-up am Joint
+    ├── pipe_curve_gentle_*.png         3 renders: preview, topdown, connection_test
+    ├── pipe_*.blend                    Blender-Quellen
     └── meta.json
 ```
 

@@ -17,8 +17,8 @@ Modelle, erstellt mit Claude — für ein Hex-Grid-Strategiespiel im Browser. St
 | [base_plate/deko/lamp](base_plate/deko/) | 323 KB | 8321 | PolyHaven-Holzlaterne (Deko, optional) |
 | [pipe_plate](pipe_plate/) | 126 KB | 168 | Niedrige Foundation für Rohre (0.19 hoch), Holzbretter-Deck mit Nägeln |
 | [pipes/pipe_straight](pipes/) | 162 KB | 1750 | Gerades Rohr E↔W mit 5 Lampen + 4 Holz-Brackets |
-| pipes/pipe_curve_gentle | — | — | ⏳ TODO: 120°-Bogen |
-| pipes/pipe_curve_sharp | — | — | ⏳ TODO: 60°-Bogen |
+| [pipes/pipe_curve_gentle](pipes/) | 174 KB | 1614 | 60°-Bogen E↔NW (Radius 1.5), gleiche Bauteile-Familie |
+| pipes/pipe_curve_sharp | — | — | ⏳ TODO: 120°-Bogen (benachbarte Kanten) |
 
 **Insgesamt aktuell: ~1.1 MB für die fertigen Assets** — web-tauglich für eine Insel mit hunderten Hexes.
 
