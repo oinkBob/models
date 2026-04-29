@@ -36,15 +36,22 @@ Alle Assets liegen in `/home/diwidan/Schreibtisch/Assets/`. Memory-Files in `~/.
 │   ├── pipe_plate_preview.png
 │   └── meta.json
 │
-└── pipes/                                 ✓ ALL 3 VARIANTS DONE
-    ├── pipe_straight.glb         162 KB · 1750 Tris · gegenüberliegende Edges (E↔W)
-    ├── pipe_curve_gentle.glb     174 KB · 1614 Tris · 60°-Bogen Radius 1.5 (E↔NW)
-    ├── pipe_curve_sharp.glb      177 KB · 1614 Tris · 120°-Bogen Radius 0.5 (E↔NE)
-    ├── connection_test.png + connection_closeup.png       für pipe_straight
-    ├── pipe_curve_gentle_{preview,with_plate,connection_test,topdown}.png
-    ├── pipe_curve_sharp_{preview,with_plate,connection_test,topdown}.png
-    ├── pipe_*.blend                    Blender-Quellen
-    └── meta.json
+├── pipes/                                 ✓ ALL 3 VARIANTS DONE
+│   ├── pipe_straight.glb         162 KB · 1750 Tris · gegenüberliegende Edges (E↔W)
+│   ├── pipe_curve_gentle.glb     174 KB · 1614 Tris · 60°-Bogen Radius 1.5 (E↔NW)
+│   ├── pipe_curve_sharp.glb      177 KB · 1614 Tris · 120°-Bogen Radius 0.5 (E↔NE)
+│   ├── connection_test.png + connection_closeup.png       für pipe_straight
+│   ├── pipe_curve_gentle_{preview,with_plate,connection_test,topdown}.png
+│   ├── pipe_curve_sharp_{preview,with_plate,connection_test,topdown}.png
+│   ├── pipe_*.blend                    Blender-Quellen
+│   └── meta.json
+│
+└── buildings/                             ⚙ IN PROGRESS
+    └── harvester/                         ✓ DONE — Wind-Pump-Style
+        ├── harvester.glb         118 KB · 416 Tris · 8 Holzblätter + gelber Hub auf Truss-Tower
+        ├── harvester.blend
+        ├── harvester_{preview,on_base_plate,full_scene}.png
+        └── meta.json
 ```
 
 **3 Pipe-Modelle decken alle 15 Hex-Edge-Pairs ab** via Y-Rotation in Three.js:

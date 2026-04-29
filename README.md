@@ -19,6 +19,7 @@ Modelle, erstellt mit Claude — für ein Hex-Grid-Strategiespiel im Browser. St
 | [pipes/pipe_straight](pipes/) | 162 KB | 1750 | Gerades Rohr E↔W mit 5 Lampen + 4 Holz-Brackets |
 | [pipes/pipe_curve_gentle](pipes/) | 174 KB | 1614 | 60°-Bogen E↔NW (Radius 1.5), eine Kante übersprungen |
 | [pipes/pipe_curve_sharp](pipes/) | 177 KB | 1614 | 120°-Bogen E↔NE (Radius 0.5), benachbarte Kanten |
+| [buildings/harvester](buildings/harvester/) | 118 KB | 416 | Erstes Gebäude — Wind-Pump-Style mit 8 Holzblättern, gelbem Hub, sitzt auf base_plate. `anim_spin_x` für Three.js Rotor-Animation |
 
 **Insgesamt aktuell: ~1.5 MB für die fertigen Assets** — web-tauglich für eine Insel mit hunderten Hexes.
 
