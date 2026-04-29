@@ -30,8 +30,21 @@
       "structure": "Gleiche Bauteile-Familie wie pipe_straight: subdivided tube + 2 Flansche + 4 Bänder + 4 Wood-Brackets + 5 Lampen + 16 Bolts. Brackets und Bänder sind perpendicular zur lokalen Tangente entlang der Kurve orientiert."
     },
     "pipe_curve_sharp": {
-      "status": "todo",
-      "connects": "60° apart (adjacent edges)"
+      "status": "✓ done",
+      "file": "pipe_curve_sharp.glb",
+      "size_kb": 177,
+      "polys": 1614,
+      "meshes": 13,
+      "connects": "60° apart (adjacent edges) — z.B. E↔NE, NE↔NW, NW↔W etc.",
+      "rotation_deg": "Three.js rotates by 0/60/120/180/240/300 around Y for all 6 adjacent-edge pairs",
+      "geometry": {
+        "arc_radius": 0.5,
+        "arc_sweep_deg": 120,
+        "arc_center_xy": [0.866, 0.5],
+        "arc_path": "from anchor_0 (E, t=0) to anchor_1 (NE, t=1), going clockwise from arc-center angle 270° to 150°",
+        "rationale": "Tight turn — kleinerer Radius, größerer Sweep. Pipe-Mittelpunkt bei (0.433, 0.25), gut innerhalb des Hex"
+      },
+      "structure": "Selbe Bauteile-Familie wie pipe_straight + pipe_curve_gentle: subdivided tube + 2 Flansche + 4 Bänder + 4 Wood-Brackets + 5 Lampen + 16 Bolts. Auf der kürzeren Bahn (Bogenlänge ~1.05) sind Brackets enger gestaffelt — passt zur kompakten Geometrie."
     }
   },
   "common_specs": {
