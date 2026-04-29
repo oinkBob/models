@@ -3,9 +3,10 @@
   "type": "building",
   "purpose": "Erstes und meistgebautes Gebäude — extrahiert Energie aus dem Boden des Hex. Sitzt auf einer base_plate. Soll warm/freundlich wirken, klar als 'arbeitend' lesbar (animierter Rotor in Three.js).",
   "file": "harvester.glb",
-  "size_kb": 118,
-  "polys": 416,
-  "meshes": 7,
+  "size_kb": 100,
+  "polys": 695,
+  "meshes": 8,
+  "version": "v4 — palette-grey steel for clear contrast vs wood; rotor lifted on tall mast; wagon-wheel rotor with 12 wood blades + outer ring + small yellow hub",
   "geometry": {
     "scale_factor_v3": "2x über v2 (Tower deutlich höher, Rotor visuell dominant)",
     "total_height_above_deck": 1.66,
@@ -24,13 +25,21 @@
       "embedded": "0.015 sinks into base_plate's deck — kein Float-Gap"
     },
     "HV_FoundationRim": {
-      "shape": "Inner top rim, r=0.59, h=0.05",
-      "material": "mx_metal_steel"
+      "shape": "Top rim, r=0.70 (wider than post-corner distance 0.636 — posts visibly sit on it), h=0.025",
+      "material": "mx_metal_fittings_hv (palette darker grey)"
+    },
+    "HV_RotorSupport": {
+      "shape": "Tall vertical mast above platform: r=0.04, h=0.85 — lifts the rotor pivot to z=3.07 so the rotor's bottom blade clears the platform top (z=2.18)",
+      "material": "mx_metal_steel (palette grey)"
+    },
+    "HV_MastCap": {
+      "shape": "Disc on top of the mast, r=0.06, h=0.04 — where the axle attaches",
+      "material": "mx_metal_fittings_hv"
     },
     "HV_Posts": {
       "shape": "4 inward-tapered square posts (base 0.45, top 0.20 from center, height 1.30)",
-      "material": "mx_metal_steel (rusty_metal_05 with cool/silver tint — KLAR ANDERS als die Pipe-Body-Textur rusty_metal_04)",
-      "rationale": "Anderer Stahl als die Pipe — visuelle Differenzierung gewünscht"
+      "material": "mx_metal_steel (palette flat grey #9aa0a8 × VColor AO — KLAR silberner Stahl, eindeutig anders als die rost-texturierte Pipe und das Holz)",
+      "rationale": "v4-Wechsel: Polyhaven-Texturen für Stahl haben alle warme Untertöne (rusty_metal_*, factory_wall) und blieben braun/grün auch mit cool tints. Palette-Farbe garantiert echtes Silber-Grau."
     },
     "HV_Braces": {
       "shape": "3 levels of X-pattern wooden cross-braces (12 X-shapes total = 24 diagonal struts)",
@@ -46,11 +55,14 @@
       "material": "mx_metal_steel"
     },
     "HV_Rotor": {
-      "shape": "Wooden multi-bladed wind-pump rotor: axle (mx_metal_steel) + yellow hub (mx_harvester_yellow) + 8 wooden blades (mx_wood_rotor) + yellow nose cone (mx_harvester_yellow) + rear nut",
-      "polys": 212,
-      "rotor_diameter": 1.52,
+      "shape": "Classic wagon-wheel windpump rotor: axle (mx_metal_steel) + small yellow hub (mx_harvester_yellow) + 12 narrow wooden blades (mx_wood_rotor) + outer wooden ring (wagon-wheel binder) + yellow nose cone + rear nut",
+      "polys": 281,
+      "rotor_diameter": 1.44,
+      "blade_count": 12,
+      "blade_pitch_deg": 15,
+      "outer_ring_minor_radius": 0.024,
       "rotation_axis": "X (horizontal)",
-      "pivot": "Origin set to (0, 0, 2.28) — the actual rotation center",
+      "pivot": "Origin set to (0, 0, 3.07) — the rotation center, above the new tall mast",
       "anim_empty": "anim_spin_x (PLAIN_AXES at pivot) — Three.js rotates HV_Rotor around X-axis"
     }
   },
