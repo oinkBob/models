@@ -1,10 +1,10 @@
 {
   "name": "harvester",
   "type": "building",
-  "version": "v5 — re-built using Tripo3D-AI v2 generation as visual reference: all-wood truss tower + horizontal turbine-style rotor with 8 long propeller blades, no outer ring",
+  "version": "v6 — multi-texture pipeline: stone foundation rim, metal axle, yellow-tinted metal hub, separate wood texture for braces vs posts/platform/blades, two-stage AO bake to exclude rotor shadow on platform",
   "purpose": "Erstes und meistgebautes Gebäude — extrahiert Energie aus dem Boden des Hex. Sitzt auf einer base_plate. Animierter Rotor (rotiert um Z-Achse — horizontale Wheel-Plane).",
   "file": "harvester.glb",
-  "size_kb": 68,
+  "size_kb": 221,
   "polys": 360,
   "meshes": 7,
   "geometry": {
@@ -23,29 +23,27 @@
   "components": {
     "HV_FoundationPad": {
       "shape": "Octagonal disc, r=0.64, h=0.10",
-      "material": "mx_metal_fittings_hv (palette grey #7a8088)"
+      "material": "mx_axle_metal (rusty_metal_05 × cool steel tint)"
     },
     "HV_FoundationRim": {
       "shape": "Top rim, r=0.70, h=0.025 — wider than post-corner distance 0.636 so posts sit firmly",
-      "material": "mx_metal_fittings_hv"
+      "material": "mx_foundation_stone (castle_wall_slates × neutral tint) — visible grey stone band where posts sit"
     },
     "HV_Posts": {
       "shape": "4 inward-tapered square wooden beams (base 0.45, top 0.20 from center, height 1.30)",
-      "material": "mx_wood_posts (wood_planks_dirt × warm tint 1.05/0.85/0.65) — ALL WOOD now (v4 had silver steel, v5 is all-wood like the AI inspiration)"
+      "material": "mx_wood_posts (wood_planks_dirt × warm wood tint)"
     },
     "HV_Braces": {
       "shape": "3 levels of X-pattern wooden cross-braces (24 diagonal struts total)",
-      "material": "mx_wood_braces (darker wood tint 0.85/0.70/0.55)",
-      "note": "VColor floored to 0.7 minimum to compensate for AO=0 bug on thin diagonal cubes"
+      "material": "mx_wood_braces (worn_planks × warm tint) — DIFFERENT wood texture than posts to add visual variety"
     },
     "HV_TopPlatform": {
       "shape": "Octagonal wooden plate, r=0.32, h=0.06",
-      "material": "mx_wood_platform"
+      "material": "mx_wood_platform (wood_planks_dirt × medium-warm tint)"
     },
     "HV_AxleSupport": {
-      "shape": "Small steel cube 0.10×0.10×0.14 sitting on the platform — only metal piece besides foundation",
-      "material": "mx_metal_steel (palette grey #9aa0a8)",
-      "rationale": "Mimics the AI v2 inspiration which had a small grey block under the rotor"
+      "shape": "Small steel cube 0.10×0.10×0.14 sitting on the platform",
+      "material": "mx_axle_metal (rusty_metal_05 × cool steel tint) — proper metal texture, not flat palette"
     },
     "HV_Rotor": {
       "shape": "Horizontal turbine rotor: vertical steel axle + small yellow hub + 8 long propeller-style wooden blades + small yellow dome cap",
@@ -55,39 +53,55 @@
       "blade_orientation": "horizontal plane (wheel face = up); blades are radial",
       "rotation_axis": "Z (vertical)",
       "pivot": "Origin set to (0, 0, 2.33) — top of axle support box",
-      "anim_empty": "anim_spin_z (PLAIN_AXES at pivot) — Three.js rotates HV_Rotor around Z-axis"
+      "anim_empty": "anim_spin_z (PLAIN_AXES at pivot) — Three.js rotates HV_Rotor around Z-axis",
+      "axle_material": "mx_axle_metal (rusty_metal_05 × cool steel tint)",
+      "hub_material": "mx_harvester_yellow (rusty_metal_05 × strong yellow tint — painted-metal look)",
+      "blade_material": "mx_wood_blades (wood_planks_dirt × bright wood tint)"
     }
   },
   "polyhaven_textures_used": [
-    "wood_planks_dirt (1k → 512 diffuse) — only texture used; tower posts, braces, platform, rotor blades all get different tints of this same texture"
+    "wood_planks_dirt (512px diffuse) — posts, platform, blades (different tints)",
+    "worn_planks (512px diffuse) — X-braces (different wood texture for visual variety)",
+    "castle_wall_slates (512px diffuse) — foundation rim stone band",
+    "rusty_metal_05 (512px diffuse) — foundation pad, axle, axle support, yellow hub (different tints)"
   ],
   "material_tint_family": {
-    "mx_wood_posts":         "(1.05, 0.85, 0.65) on wood_planks_dirt — warm wooden tower beams",
-    "mx_wood_braces":        "(0.85, 0.70, 0.55) on wood_planks_dirt — darker aged wood for X-braces",
-    "mx_wood_platform":      "(0.95, 0.78, 0.60) on wood_planks_dirt — top platform",
-    "mx_wood_blades":        "(1.10, 0.88, 0.65) on wood_planks_dirt — rotor blades (slightly brighter)",
-    "mx_metal_steel":        "Palette #9aa0a8 × VColor — axle support block",
-    "mx_metal_fittings_hv":  "Palette #7a8088 × VColor — foundation pad/rim",
-    "mx_harvester_yellow":   "Palette #f59e0b × VColor — yellow hub + cap"
+    "mx_foundation_stone":  "castle_wall_slates × (0.95, 0.93, 0.90) — neutral grey stone",
+    "mx_axle_metal":        "rusty_metal_05 × (0.85, 0.88, 0.95) — cool silvery steel",
+    "mx_harvester_yellow":  "rusty_metal_05 × (1.60, 1.20, 0.25) — strong yellow tint = painted metal hub",
+    "mx_wood_posts":        "wood_planks_dirt × (1.10, 0.88, 0.65) — warm wooden tower beams",
+    "mx_wood_braces":       "worn_planks × (1.05, 0.90, 0.70) — different wood texture for X-braces",
+    "mx_wood_platform":     "wood_planks_dirt × (1.00, 0.82, 0.60) — top platform",
+    "mx_wood_blades":       "wood_planks_dirt × (1.15, 0.92, 0.68) — rotor blades (slightly brighter)"
   },
+  "material_pipeline": "Image Texture → Tint MixRGB(MULTIPLY) → VColor MixRGB(MULTIPLY) → BSDF Base Color. All slots use real PolyHaven diffuse textures × per-material tint × VColor(AO bake). NO flat palette colors anywhere.",
   "render_pipeline": "Flat-shading + Cycles AO bake → vertex color Col → Texture × VColor MULTIPLY in materials. MeshBasicMaterial-tauglich für Three.js.",
+  "ao_bake_strategy": {
+    "two_stage": true,
+    "static_pass": "Rotor moved to z=-100, hide_render=True, all Cycles ray visibility flags set to False during bake of static parts (FoundationPad, FoundationRim, Posts, Braces, Platform, AxleSupport)",
+    "rotor_pass": "Rotor baked in isolation at original position so it has its own internal AO without contributing shadows to static parts",
+    "rationale": "Rotor will spin in-game — any baked rotor shadow on the platform would look wrong as the rotor rotates around it",
+    "verification": "Test render with rotor rotated 22.5° shows blade shadows (live Cycles shadows) move with rotor; baked AO on platform top stays uniform = 1.0"
+  },
   "size_optimization": {
-    "size_kb": 68,
+    "size_kb": 221,
     "polys": 360,
     "techniques_applied": [
-      "Diffuse-only (no PBR maps)",
-      "1k → 512 JPEG Q80",
+      "Diffuse-only (no PBR maps — no normal/roughness/AO textures included)",
+      "All textures downscaled 1024 → 512, JPEG Q80",
       "Posts (4) + Braces (24) + Rotor (12) joined to single meshes",
       "Draco mesh compression Level 6",
-      "One shared diffuse texture across all wood parts (different per-material tints)"
+      "Texture sharing: rusty_metal_05 used for 3 different materials (axle, axle support, yellow hub) via tint variations; wood_planks_dirt for 3 wood materials"
     ]
   },
   "threejs_runtime_hints": {
     "rotor_animation": "scene.getObjectByName('HV_Rotor').rotation.z = t * 0.8  // ~0.8 rad/s spin around vertical axis",
-    "anim_empty": "anim_spin_z empty marks the pivot. HV_Rotor's origin already set to it, so direct rotation.z works."
+    "anim_empty": "anim_spin_z empty marks the pivot. HV_Rotor's origin already set to it, so direct rotation.z works.",
+    "shading_note": "Use MeshBasicMaterial — model is fully flat-shaded with AO baked into vertex color attribute 'Col'. No live lighting/shadows needed."
   },
   "design_lineage": {
     "v4": "12-blade wagon-wheel rotor on tall steel mast, vertical wheel plane, mixed wood/steel tower",
-    "v5": "8 long propeller blades on horizontal plane, all-wood tower with small steel axle support block — re-built with Tripo3D AI v2 generation as visual reference (see _aigen/harvester_aigen_v2_topview.png for source inspiration, kept locally only, not in repo)"
+    "v5": "8 long propeller blades on horizontal plane, all-wood tower with palette-colored axle support — re-built with Tripo3D AI v2 generation as visual reference",
+    "v6": "Multi-texture pipeline (no palette colors anywhere): stone foundation rim, separate wood texture for braces, real metal texture for axle/yellow hub, two-stage AO bake to keep platform top clean for the rotating rotor"
   }
 }
