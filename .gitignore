@@ -23,3 +23,6 @@ _tmp_*
 _harvester_temp.blend
 # Temporary blend exports during build
 _*.blend
+
+# AI-generated experimental assets (not part of the production library)
+_aigen/
